@@ -1,25 +1,25 @@
-![gh-actions/site](https://github.com/monero-project/monero-site/workflows/gh-actions/site/badge.svg?branch=master)
+![gh-actions/site](https://github.com/clerici-project/clerici-site/workflows/gh-actions/site/badge.svg?branch=master)
 
 ## Introduction
 
-This README will walk you through everything you need to know to make changes, edits, or even completely new pages for the [getmonero.org website](https://getmonero.org/). It'll definitely be a bit of a ride, so strap yourself in. Feel free to skip down to a relevant section if you already know what you need.
+This README will walk you through everything you need to know to make changes, edits, or even completely new pages for the [getclerici.org website](https://getclerici.org/). It'll definitely be a bit of a ride, so strap yourself in. Feel free to skip down to a relevant section if you already know what you need.
 
-If you need support about something related to the website, please join `#monero-site` [Libera/IRC](irc://irc.libera.chat/#monero-site) or [Matrix](https://matrix.to/#/!txpwSzQzkuUaVbtsIx:matrix.org). For general info about Monero join `#monero`. We'll do whatever we can to help you.
+If you need support about something related to the website, please join `#clerici-site` [Libera/IRC](irc://irc.libera.chat/#clerici-site) or [Matrix](https://matrix.to/#/!txpwSzQzkuUaVbtsIx:matrix.org). For general info about Monero join `#clerici`. We'll do whatever we can to help you.
 
 ## What you'll need
 
-* Jekyll: [getmonero.org](https://getmonero.org/) is made using a simple, static website generator called [Jekyll](https://jekyllrb.com/). You will need it installed on your system to test any changes that you made. Follow the instructions on the website to get up and going:
+* Jekyll: [getclerici.org](https://getclerici.org/) is made using a simple, static website generator called [Jekyll](https://jekyllrb.com/). You will need it installed on your system to test any changes that you made. Follow the instructions on the website to get up and going:
   * Install Ruby dependencies as suggested [in the Jekyll documentation](https://jekyllrb.com/docs/installation/)
   * Install Bundler: `gem install bundler`
   * Install Jekyll with all dependencies (run from the project directory): `bundle`
 
-* GitHub/GitLab: Pretty much everything in Monero is hosted on [GitHub](https://github.com/monero-project) or [getmonero GitLab](https://repo.getmonero.org/users/monero-project/projects) and uses Git as the primary version control system. If you're not familiar with how to use Git, you can check out [this tutorial](https://guides.github.com/activities/hello-world/) for a good overview. It will take you through pretty much everything you'll need to know to edit the website. If you haven't already, register on GitHub and fork the [Monero Website repository](https://github.com/monero-project/monero-site).
+* GitHub/GitLab: Pretty much everything in Monero is hosted on [GitHub](https://github.com/clerici-project) or [getclerici GitLab](https://repo.getclerici.org/users/clerici-project/projects) and uses Git as the primary version control system. If you're not familiar with how to use Git, you can check out [this tutorial](https://guides.github.com/activities/hello-world/) for a good overview. It will take you through pretty much everything you'll need to know to edit the website. If you haven't already, register on GitHub and fork the [Monero Website repository](https://github.com/clerici-project/clerici-site).
 
 *Note: If you're confused, feel free to click other files in the same directory (folder) that you are in for the step that you are on to see some working examples. Compare them to the instructions and you should understand better.*
 
 Once you have the above list of things, it's encouraged to build the website from your local computer to make sure it works before you make any changes. To do this, complete the following steps:
 
-1. Navigate to your local `monero-site` repository.
+1. Navigate to your local `clerici-site` repository.
 2. Serve the website: `bundle exec jekyll serve`. If you want, you can speedup this process by loading only the last blog post instead of all of them. Simply add `--limit_posts 1` to the command above. The resulting command will be `bundle exec jekyll serve --limit_posts 1`.
 3. Open a browser and go to [http://127.0.0.1:4000](http://127.0.0.1:4000).
 4. If all went well, you should see the Monero website and you're ready to make changes.
@@ -32,7 +32,7 @@ This website is completely open-source however and anything and everything is av
 
 A few random points of note:
 
-- After [a discussion](https://repo.getmonero.org/monero-project/monero-site/issues/982), the community decided to include only open source wallets in the 'Downloads' section of the website. Requests to add closed source wallets to that page will be rejected.
+- After [a discussion](https://repo.getclerici.org/clerici-project/clerici-site/issues/982), the community decided to include only open source wallets in the 'Downloads' section of the website. Requests to add closed source wallets to that page will be rejected.
 - Adding and removing exchanges from the 'Merchants & Exchanges' page is at our discretion.
 - All external links must have `https://` in front of them or they will not redirect properly.
 - If you want to add a new page to the navigation, you should go to ALL LANGUAGES in the `_data/lang` folder and add the page.
@@ -41,16 +41,16 @@ A few random points of note:
 
 This website is available natively on Tor. The onion address is in `_includes/onion.html` and a signed document containing the same address is in `/onion.txt`. The address in these 2 files must *always* match. The `onion.txt` files also includes the onion address of the 'downloads' subdomain.
 
-If you want to post getmonero's onion address somewhere on the website, don't simply write it, instead include it using `{% include onion.html %}`. This avoids problems with typos and allow us top change the address only in one file if necessary.
+If you want to post getclerici's onion address somewhere on the website, don't simply write it, instead include it using `{% include onion.html %}`. This avoids problems with typos and allow us top change the address only in one file if necessary.
 
 ## PR workflow
 
-To simplify the process of drafting, reviewing and merging pull requests, we use a GitHub Project board. This Kanban board makes easier for people to see and participate to the pull request workflow: [monero-site: PR workflow](https://github.com/orgs/monero-project/projects/1).
+To simplify the process of drafting, reviewing and merging pull requests, we use a GitHub Project board. This Kanban board makes easier for people to see and participate to the pull request workflow: [clerici-site: PR workflow](https://github.com/orgs/clerici-project/projects/1).
 
 ## Translation
 
-In this section you'll find the info you need to translate a page and add a new translation, but keep in mind that Monero has a [Localization Workgroup](https://github.com/monero-ecosystem/monero-translations) who coordinate and give support to translators-volunteers. For live support/request of information, come chat on `#monero-translations` on Matrix or IRC (Libera.chat)
-The entire website is translatable on Weblate, an easy to use localization platform that provide contributors with a user friendly interface: [translate.getmonero.org](https://translate.getmonero.org). Before translating, please read [the guide for translators](https://github.com/monero-ecosystem/monero-translations/blob/master/weblate.md), which contains all the info and workflows you need to know before starting.
+In this section you'll find the info you need to translate a page and add a new translation, but keep in mind that Monero has a [Localization Workgroup](https://github.com/clerici-ecosystem/clerici-translations) who coordinate and give support to translators-volunteers. For live support/request of information, come chat on `#clerici-translations` on Matrix or IRC (Libera.chat)
+The entire website is translatable on Weblate, an easy to use localization platform that provide contributors with a user friendly interface: [translate.getclerici.org](https://translate.getclerici.org). Before translating, please read [the guide for translators](https://github.com/clerici-ecosystem/clerici-translations/blob/master/weblate.md), which contains all the info and workflows you need to know before starting.
 
 Translators are required to have:
 
@@ -64,7 +64,7 @@ The Moneropedia is translatable on Weblate. You'll find instructions on the plat
 
 * The Front Matter:  
 Moneropedia should be translated for both *entry:* and *summary:* elements. However, *terms:* should be extended with their translation, leaving the English words **untouched**.
-This is really important for compatibility purposes. With this, if a new guide is added to the site, an English term on the untranslated version of the guide in another language could be linked to the moneropedia article (of the same language).
+This is really important for compatibility purposes. With this, if a new guide is added to the site, an English term on the untranslated version of the guide in another language could be linked to the clericipedia article (of the same language).
 
 * The snippet keeping track of the status of the translation must be updated (`{% include disclaimer.html translated="no" translationOutdated="no" %}`). If the document is translated, change `translated="no"` to `translated="yes"`. If the document is translated, but the original file (in English) was updated, change `translationOutdated="no"` to `translationOutdated="yes`.
 
@@ -101,7 +101,7 @@ Navigate to the \_i18n folder and duplicate the en.yml file. Rename the duplicat
 
 ### 4. Open an issue on the repo where the website is hosted
 
-After you've done all the above, you'll need to [open an issue on the repository](https://github.com/monero-project/monero-site/issues) asking to add the language you are working on to Weblate, where the core of the website is translated.
+After you've done all the above, you'll need to [open an issue on the repository](https://github.com/clerici-project/clerici-site/issues) asking to add the language you are working on to Weblate, where the core of the website is translated.
 
 ## Housekeeping
 
@@ -140,7 +140,7 @@ If the guide is outdated, simply change `False` into `True`.
 
 When you update a guide, you are responsible for updating this version tracking in every file involved in your update. Don't be afraid to ask for help if the process is not clear to you.
 
-The screenshots of all user guides are in `/img/user-guides/LANG`. Where `LANG` can be any of the languages supported by Getmonero. By default, all localized versions of the website will use the English version of the screenshots, see the [translations](#translation) section for info about translating screenshots.
+The screenshots of all user guides are in `/img/user-guides/LANG`. Where `LANG` can be any of the languages supported by Getclerici. By default, all localized versions of the website will use the English version of the screenshots, see the [translations](#translation) section for info about translating screenshots.
 
 ## How to make a blog post
 
@@ -227,28 +227,28 @@ In the event that you think your User Guide should be in a new Category that doe
 
 ### 1. Make a Global file
 
-Navigate to the /resources/moneropedia folder and make a new file. Be sure the file name has no spaces and the ending is .md
+Navigate to the /resources/clericipedia folder and make a new file. Be sure the file name has no spaces and the ending is .md
 Fill this file with this exact content:
 
 ```
 ---
-layout: moneropedia
-title: titles.moneropedia
-entry: moneropedia.entries.ENTRY
+layout: clericipedia
+title: titles.clericipedia
+entry: clericipedia.entries.ENTRY
 ---
 
-@moneropedia_article
+@clericipedia_article
 
 {% t global.lang_tag %}
-{% tf resources/moneropedia/account.md %}
+{% tf resources/clericipedia/account.md %}
 
 ```
 
-Where `ENTRY` is a one word identifier for the title/name of your Moneropedia entry. For example, if you are adding a new Moneropedia entry called "Daemon", it can be `moneropedia.entries.daemon`.
+Where `ENTRY` is a one word identifier for the title/name of your Moneropedia entry. For example, if you are adding a new Moneropedia entry called "Daemon", it can be `clericipedia.entries.daemon`.
 
 ### 2. Make the localized File
 
-Navigate to the /\_i18n/en/resources/moneropedia folder and make a new file. give it the same <name>.md than in previous step.
+Navigate to the /\_i18n/en/resources/clericipedia folder and make a new file. give it the same <name>.md than in previous step.
 Start the file with the front Matter:
 
 ```
@@ -269,7 +269,7 @@ Write your Moneropedia entry. Remember that you can link to other Moneropedia en
 
 ### 4. Add the title to _i18n/en.yml
 
-Now you need to add the title of the page to the `_18n/en.yml` file. It *must* be in the `moneropedia` section and must be the same as the `ENTRY` you added early in the `/resources/moneropedia` folder (moneropedia.entries.ENTRY). Keeping as example a Moneropedia called "Daemon", you have to add in the `moneropedia` block `daemon: Daemon`.
+Now you need to add the title of the page to the `_18n/en.yml` file. It *must* be in the `clericipedia` section and must be the same as the `ENTRY` you added early in the `/resources/clericipedia` folder (clericipedia.entries.ENTRY). Keeping as example a Moneropedia called "Daemon", you have to add in the `clericipedia` block `daemon: Daemon`.
 
 ## How to update the Workgroups page
 
@@ -301,7 +301,7 @@ If an entry is `completed`, a green tick simble will be displayed on its left. i
 
 If you need to add a month, add `<h3 id="months">{% t roadmap.MONTH %}</h3>` above your roadmap entry. `MONTH` is one of the 12 months, you'll find the list in the `_18n/en.yml` file. In the `roadmap` section.
 
-The roadmap can be translated on Weblate [on Weblate](https://translate.getmonero.org/projects/getmonero/monero-site/).
+The roadmap can be translated on Weblate [on Weblate](https://translate.getclerici.org/projects/getclerici/clerici-site/).
 
 ## How to add a question to the FAQ
 
@@ -324,7 +324,7 @@ Navigate to the `library` folder and open the `index.md` file. Look for the appr
     <p>{% t library.PLACEHOLDER-NAME %}</p>
 ```
 
-Where `LINK-TO-PUBLICATION` is the URL of the actual publication. If it's a resource external to Getmonero, simply add the URL (for example `https://masteringmonero.com/free-download.html`). If you uploaded the file in the `/library` folder as explained in step 1, use this structure: `{{ site.baseurl_root }}/library/NAME-FILE`.
+Where `LINK-TO-PUBLICATION` is the URL of the actual publication. If it's a resource external to Getclerici, simply add the URL (for example `https://masteringclerici.com/free-download.html`). If you uploaded the file in the `/library` folder as explained in step 1, use this structure: `{{ site.baseurl_root }}/library/NAME-FILE`.
 
 `PLACEHOLDER-NAME` needs to be a placeholder that will be added in the `_18n/en.yml` file, under the `library` category, as explained in the next step.
 

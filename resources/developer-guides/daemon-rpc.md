@@ -9,11 +9,11 @@ title: "Daemon RPC documentation"
 
 ## Introduction
 
-This is a list of the monerod daemon RPC calls, their inputs and outputs, and examples of each.
+This is a list of the clcd daemon RPC calls, their inputs and outputs, and examples of each.
 
 Many RPC calls use the daemon's JSON RPC interface while others use their own interfaces, as demonstrated below.
 
-Note: "@atomic-units" refer to the smallest fraction of 1 XMR according to the monerod implementation. **1 XMR = 1e12 @atomic-units.**
+Note: "@atomic-units" refer to the smallest fraction of 1 XMR according to the clcd implementation. **1 CLC = 1e12 @atomic-units.**
 
 ### [JSON RPC Methods](#json-rpc-methods):
 
@@ -80,11 +80,11 @@ Note: "@atomic-units" refer to the smallest fraction of 1 XMR according to the m
 
 ## JSON RPC Methods
 
-The majority of monerod RPC calls use the daemon's `json_rpc` interface to request various bits of information. These methods all follow a similar structure, for example:
+The majority of clcd RPC calls use the daemon's `json_rpc` interface to request various bits of information. These methods all follow a similar structure, for example:
 
 ```
 IP=127.0.0.1
-PORT=18081
+PORT=28081
 METHOD='get_block_header_by_height'
 ALIAS='getblockheaderbyheight'
 PARAMS='{"height":912345}'
@@ -113,7 +113,7 @@ Outputs:
 Example:
 
 ```
-$ curl http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block_count"}' -H 'Content-Type: application/json'  
+$ curl http://127.0.0.1:28081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block_count"}' -H 'Content-Type: application/json'  
 
 {  
   "id": "0",  
@@ -144,7 +144,7 @@ Outputs:
 Example:
 
 ```
-$ curl http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"on_get_block_hash","params":[912345]}' -H 'Content-Type: application/json'
+$ curl http://127.0.0.1:28081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"on_get_block_hash","params":[912345]}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -185,7 +185,7 @@ Outputs:
 Example:
 
 ```
-$ curl http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block_template","params":{"wallet_address":"44GBHzv6ZyQdJkjqZje6KLZ3xSyN1hBSFAnLP6EAqJtCRVzMzZmeXTC2AHKDS9aEDTRKmo6a6o9r9j86pYfhCWDkKjbtcns","reserve_size":60}' -H 'Content-Type: application/json'
+$ curl http://127.0.0.1:28081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block_template","params":{"wallet_address":"44GBHzv6ZyQdJkjqZje6KLZ3xSyN1hBSFAnLP6EAqJtCRVzMzZmeXTC2AHKDS9aEDTRKmo6a6o9r9j86pYfhCWDkKjbtcns","reserve_size":60}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -226,7 +226,7 @@ Outputs:
 In this example, a block blob which has not been mined is submitted:
 
 ```
-$ curl http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"submit_block","params":["0707e6bdfedc053771512f1bc27c62731ae9e8f2443db64ce742f4e57f5cf8d393de28551e441a0000000002fb830a01ffbf830a018cfe88bee283060274c0aae2ef5730e680308d9c00b6da59187ad0352efe3c71d36eeeb28782f29f2501bd56b952c3ddc3e350c2631d3a5086cac172c56893831228b17de296ff4669de020200000000"]' -H 'Content-Type: application/json'
+$ curl http://127.0.0.1:28081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"submit_block","params":["0707e6bdfedc053771512f1bc27c62731ae9e8f2443db64ce742f4e57f5cf8d393de28551e441a0000000002fb830a01ffbf830a018cfe88bee283060274c0aae2ef5730e680308d9c00b6da59187ad0352efe3c71d36eeeb28782f29f2501bd56b952c3ddc3e350c2631d3a5086cac172c56893831228b17de296ff4669de020200000000"]' -H 'Content-Type: application/json'
 
 {
   "error": {
@@ -259,9 +259,9 @@ Outputs:
   * *hash* - string; The hash of this block.
   * *height* - unsigned int; The number of blocks preceding this block on the blockchain.
   * *long_term_weight* - unsigned int; The long term block weight, based on the median weight of the preceding 100000 blocks.
-  * *major_version* - unsigned int; The major version of the monero protocol at this block height.
+  * *major_version* - unsigned int; The major version of the clerici protocol at this block height.
   * *miner_tx_hash* - string; The hash of this block's coinbase transaction.
-  * *minor_version* - unsigned int; The minor version of the monero protocol at this block height.
+  * *minor_version* - unsigned int; The minor version of the clerici protocol at this block height.
   * *nonce* - unsigned int; a cryptographic random one-time number used in mining a Monero block.
   * *num_txes* - unsigned int; Number of transactions in the block, not counting the coinbase tx.
   * *orphan_status* - boolean; Usually `false`. If `true`, this block is not part of the longest chain.
@@ -337,7 +337,7 @@ Outputs:
 In this example, block 912345 is looked up by its hash:
 
 ```
-$ curl http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block_header_by_hash","params":{"hash":"e22cf75f39ae720e8b71b3d120a5ac03f0db50bba6379e2850975b4859190bc6"}}' -H 'Content-Type: application/json'
+$ curl http://127.0.0.1:28081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block_header_by_hash","params":{"hash":"e22cf75f39ae720e8b71b3d120a5ac03f0db50bba6379e2850975b4859190bc6"}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -607,7 +607,7 @@ $ curl http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"g
 In the following example, block 993056 is looked up by its hash. Note that block 993056 has 3 non-coinbase transactions:
 
 ```
-$ curl http://127.0.0.1:18081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block","params":{"hash":"510ee3c4e14330a7b96e883c323a60ebd1b5556ac1262d0bc03c24a3b785516f"}}' -H 'Content-Type: application/json'
+$ curl http://127.0.0.1:28081/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"get_block","params":{"hash":"510ee3c4e14330a7b96e883c323a60ebd1b5556ac1262d0bc03c24a3b785516f"}}' -H 'Content-Type: application/json'
 
 {
   "id": "0",
@@ -1446,7 +1446,7 @@ The data structure for these calls is different than the JSON RPC calls. Whereas
 
 Note: It is recommended to use JSON RPC where such alternatives exist, rather than the following methods. For example, the recommended way to get a node's height is via the JSON RPC methods [get_info](#getinfo) or [get_last_block_header](#get_last_block_header), rather than [getheight](#getheight) below.
 
-For calls that end with **.bin**, the data is exchanged in the form of binary, serialized objects, as defined in the [Core RPC Server](https://github.com/monero-project/monero/blob/master/src/rpc/core_rpc_server_commands_defs.h).
+For calls that end with **.bin**, the data is exchanged in the form of binary, serialized objects, as defined in the [Core RPC Server](https://github.com/clerici-project/clerici/blob/master/src/rpc/core_rpc_server_commands_defs.h).
 
 
 ### **/get_height**
@@ -2015,7 +2015,7 @@ Outputs:
   * *id* - string; Peer id
   * *ip* - unsigned int; IP address in integer format
   * *last_seen* - unsigned int; unix time at which the peer has been seen for the last time
-  * *port* - unsigned int; TCP port the peer is using to connect to monero network.
+  * *port* - unsigned int; TCP port the peer is using to connect to clerici network.
 * *status* - string; General RPC error code. "OK" means everything looks good. Any other value means that something went wrong.
 * *white_list* - array of online *peer* structure, as above.
 

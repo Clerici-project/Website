@@ -1,9 +1,9 @@
-email: dev@getmonero.org
-name: Monero
-description: Monero is a digital currency that is secure, private, and untraceable.
-keywords: "monero, xmr, bitmonero, cryptocurrency"
+email: dev@getclerici.org
+name: Clerici
+description: Clerici is a digital currency that is secure, private, and untraceable.
+keywords: "clerici, clc, bitclerici, cryptocurrency"
 baseurl: ""
-url: "https://www.getmonero.org"
+url: "https://www.getclerici.org"
 
 markdown: kramdown
 
@@ -37,10 +37,10 @@ exclude_from_localizations: ["img", "css", "fonts", "media", "404.html", "feed.x
 
 # Windows live tiles config
 ie_tile_color: eeeeee
-ie_tile_small: https://static.getmonero.org/images/live-tiles/small.png
-ie_tile_medium: https://static.getmonero.org/images/live-tiles/medium.png
-ie_tile_wide: https://static.getmonero.org/images/live-tiles/wide.png
-ie_tile_large: https://static.getmonero.org/images/live-tiles/large.png
+ie_tile_small: https://static.getclerici.org/images/live-tiles/small.png
+ie_tile_medium: https://static.getclerici.org/images/live-tiles/medium.png
+ie_tile_wide: https://static.getclerici.org/images/live-tiles/wide.png
+ie_tile_large: https://static.getclerici.org/images/live-tiles/large.png
 
 # Sitemap
 sitemap:
